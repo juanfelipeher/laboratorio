@@ -15,11 +15,25 @@ public class Asiento {
         this.disponible = disponible;
     }
 
-    public String getIdAsiento() { return idAsiento; }
-    public String getIdEvento() { return idEvento; }
-    public String getLocalidad() { return localidad; }
-    public double getPrecio() { return precio; }
-    public boolean isDisponible() { return disponible; }
+    public String getIdAsiento() { 
+        return idAsiento; 
+    }
+
+    public String getIdEvento() { 
+        return idEvento; 
+    }
+    
+    public String getLocalidad() { 
+        return localidad;
+    }
+
+    public double getPrecio() { 
+        return precio; 
+    }
+
+    public boolean isDisponible() { 
+        return disponible; 
+    }
     
     public void setDisponible(boolean disponible) { this.disponible = disponible; }
 

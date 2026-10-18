@@ -2,9 +2,9 @@ package com.universidad;
 
 import org.junit.jupiter.api.*;
 
-import com.universidad.Service.ArchivoService;
-import com.universidad.Service.BoleteriaService;
-import com.universidad.Service.ReporteService;
+import com.universidad.service.ArchivoService;
+import com.universidad.service.BoleteriaService;
+import com.universidad.service.ReporteService;
 import com.universidad.exception.AsientoNoDisponibleException;
 import com.universidad.exception.BoleteriaException;
 import com.universidad.model.Compra;
@@ -25,7 +25,7 @@ public class BoleteriaServiceTest {
         // Crear datos de prueba (Mocking file system manual para el test)
         Files.createDirectories(Paths.get("data"));
         Files.write(Paths.get("data/eventos.csv"), "id,nom,fecha,lug\nE01,Prueba,2026,U".getBytes());
-        Files.write(Paths.get("data/asientos.csv"), "idA,idE,loc,pre,dis\nA1,E01,Gen,100,true\nA2,E01,Gen,100,false".getBytes());
+        Files.write(Paths.get("data/asientos.csv"), "idA,idE,loc,pre,dis\nVIP-A-01,E01,VIP,350000.0,false\nPRE-B-01,E01,Preferencial,250000.0,false\nGEN-C-01,E01,General,150000.0,false".getBytes());
         service = new BoleteriaService();
     }
 

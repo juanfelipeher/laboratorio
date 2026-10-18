@@ -20,10 +20,27 @@ public class Compra {
     }
 
     // Getters
-    public String getIdCompra() { return idCompra; }
-    public String getTitular() { return titular; }
-    public String getDocumento() { return documento; }
-    public String getIdEvento() { return idEvento; }
-    public List<String> getAsientos() { return asientos; }
-    public double getTotal() { return total; }
+    public String getIdCompra() { 
+        return idCompra; 
+    }
+
+    public String getTitular() { 
+        return titular; 
+    }
+
+    public String getDocumento() { 
+        return documento; 
+    }
+
+    public String getIdEvento() {
+        return idEvento; 
+    }
+
+    public List<String> getAsientos() { 
+        return asientos; 
+    }
+
+    public double getTotal() { 
+        return total; 
+    }
 }

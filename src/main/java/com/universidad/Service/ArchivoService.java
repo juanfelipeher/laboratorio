@@ -1,4 +1,5 @@
-package com.universidad.Service;
+package com.universidad.service;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -32,7 +33,7 @@ public class ArchivoService {
     public List<Evento> cargarEventos() throws IOException {
         List<Evento> eventos = new ArrayList<>();
         List<String> lineas = Files.readAllLines(Paths.get("data/eventos.csv"));
-        for (int i = 1; i < lineas.size(); i++) { // Evitar encabezado
+        for (int i = 1; i < lineas.size(); i++) { 
             String[] p = lineas.get(i).split(",");
             if(p.length >= 4) eventos.add(new Evento(p[0], p[1], p[2], p[3]));
         }
@@ -43,11 +44,23 @@ public class ArchivoService {
         List<Asiento> asientos = new ArrayList<>();
         List<String> lineas = Files.readAllLines(Paths.get("data/asientos.csv"));
         for (int i = 1; i < lineas.size(); i++) {
-            String[] p = lineas.get(i).split(",");
+            String[] p = lineas.get(i).split(",", -1);
             if(p.length >= 5) {
                 try {
-                    asientos.add(new Asiento(p[0], p[1], p[2], Double.parseDouble(p[3]), Boolean.parseBoolean(p[4])));
-                } catch(NumberFormatException e) {
+                    int precioIndex = p.length - 2;
+                    String disponible = p[p.length - 1].trim();
+                    if (!disponible.equalsIgnoreCase("true") && !disponible.equalsIgnoreCase("false")) {
+                        throw new IllegalArgumentException("Estado de disponibilidad inválido");
+                    }
+                    String localidad = String.join(" ", Arrays.copyOfRange(p, 2, precioIndex)).trim();
+                    asientos.add(new Asiento(
+                        p[0].trim(),
+                        p[1].trim(),
+                        localidad,
+                        Double.parseDouble(p[precioIndex].trim()),
+                        Boolean.parseBoolean(disponible)
+                    ));
+                } catch(IllegalArgumentException e) {
                     auditar("ERROR al cargar fila CSV: " + lineas.get(i));
                 }
             }

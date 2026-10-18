@@ -1,4 +1,4 @@
-package com.universidad.Service;
+package com.universidad.service;
 
 import org.knowm.xchart.BitmapEncoder;
 import org.knowm.xchart.CategoryChart;

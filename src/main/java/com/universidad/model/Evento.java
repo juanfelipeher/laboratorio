@@ -10,10 +10,21 @@ public class Evento {
         this.id = id; this.nombre = nombre; this.fecha = fecha; this.lugar = lugar;
     }
 
-    public String getId() { return id; }
-    public String getNombre() { return nombre; }
-    public String getFecha() { return fecha; }
-    public String getLugar() { return lugar; }
+    public String getId() { 
+        return id; 
+    }
+
+    public String getNombre() { 
+        return nombre; 
+    }
+
+    public String getFecha() { 
+        return fecha; 
+    }
+
+    public String getLugar() { 
+        return lugar; 
+    }
 
     @Override
     public String toString() {

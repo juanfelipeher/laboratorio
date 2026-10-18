@@ -1,4 +1,6 @@
-﻿idEvento;nombre;fecha;hora;lugar;tipoEvento
-EV001;Rock Medellin 2026;2026-10-20;19:00;Estadio Atanasio Girardot;Concierto
-EV002;Final Nacional 2026;2026-11-15;17:00;Estadio Metropolitano;Deportivo
-EV003;Noche de Teatro;2026-12-03;20:00;Teatro Metropolitano;Teatro
+id,nom,fecha,hora,lug,tipoEvento
+EV001,Rock Medellin 2026,20/10/2026,19:00,Estadio Atanasio Girardot,Concierto
+EV002,Final Nacional 2026,15/11/2026,17:00,Estadio Metropolitano,Deportivo
+EV003,Noche de Teatro,3/12/2026,20:00,Teatro Metropolitano,Teatro
+
+

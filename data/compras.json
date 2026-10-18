@@ -1,1 +1,42 @@
-[]
+[
+  {
+    "idCompra": "TEST",
+    "titular": "A",
+    "documento": "B",
+    "correo": "c@c",
+    "idEvento": "E01",
+    "asientos": [
+      "A"
+    ],
+    "subtotal": 0.0,
+    "servicio": 0.0,
+    "total": 0.0
+  },
+  {
+    "idCompra": "CMP-9277B7",
+    "titular": "Ana",
+    "documento": "123",
+    "correo": "a@a.com",
+    "idEvento": "E01",
+    "asientos": [
+      "A1"
+    ],
+    "subtotal": 100.0,
+    "servicio": 10.0,
+    "total": 110.0
+  },
+  {
+    "idCompra": "CMP-766899",
+    "titular": "Juan",
+    "documento": "1063",
+    "correo": "fcare@gmail",
+    "idEvento": "EV002",
+    "asientos": [
+      "OCC-A-01",
+      "OCC-A-02"
+    ],
+    "subtotal": 360000.0,
+    "servicio": 36000.0,
+    "total": 396000.0
+  }
+]

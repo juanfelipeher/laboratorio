@@ -2,7 +2,7 @@ package com.universidad;
 
 import java.util.*;
 
-import com.universidad.Service.BoleteriaService;
+import com.universidad.service.BoleteriaService;
 import com.universidad.model.Compra;
 import com.universidad.model.Evento;
 
@@ -54,5 +54,7 @@ public class Main {
                 System.out.println("ERROR: " + e.getMessage());
             }
         } while (opcion != 4);
+
+    scanner.close();
     }
 }
