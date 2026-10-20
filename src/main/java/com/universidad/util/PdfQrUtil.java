@@ -12,13 +12,21 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class PdfQrUtil {
 
     public static void generarTicket(Compra compra, String nombreEvento) throws Exception {
-        String ruta = "tickets/" + compra.getIdCompra() + ".pdf";
+        generarTicket(compra, nombreEvento, Paths.get("tickets"));
+    }
+
+    public static void generarTicket(Compra compra, String nombreEvento, Path directorioTickets) throws Exception {
+        Files.createDirectories(directorioTickets);
+        Path ruta = directorioTickets.resolve(compra.getIdCompra() + ".pdf");
         Document document = new Document();
-        PdfWriter.getInstance(document, new FileOutputStream(ruta));
+        PdfWriter.getInstance(document, new FileOutputStream(ruta.toFile()));
         document.open();
 
         Font fontTitulo = new Font(Font.HELVETICA, 18, Font.BOLD);

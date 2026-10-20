@@ -169,3 +169,10 @@
 2026-10-18T14:17:18.500564400 | Sistema inicializado. Datos cargados.
 2026-10-18T14:22:03.254715200 | Sistema inicializado. Datos cargados.
 2026-10-18T14:26:18.957333 | Compra exitosa: CMP-766899 | Asientos: 2
+2026-10-19T21:24:45.496301800 | Sistema inicializado. Datos cargados.
+2026-10-19T21:24:45.496301800 | Sistema inicializado. Datos cargados.
+2026-10-19T21:28:03.781582 | Compra exitosa: CMP-FA8FDF | Asientos: 2
+2026-10-19T21:33:09.574542100 | Sistema inicializado. Datos cargados.
+2026-10-19T21:33:09.600594 | ERROR al cargar fila CSV: GEN-C-01,E01,General,150000.0,falseA3,E01,Gen,PRECIO_MALO,true
+2026-10-19T21:33:20.042931400 | Sistema inicializado. Datos cargados.
+2026-10-19T21:33:20.079588500 | ERROR al cargar fila CSV: GEN-C-01,E01,General,150000.0,falseA3,E01,Gen,PRECIO_MALO,true

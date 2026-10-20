@@ -16,7 +16,11 @@ public class BoleteriaService {
     private List<Asiento> asientos;
 
     public BoleteriaService() {
-        archivoService = new ArchivoService();
+        this(new ArchivoService());
+    }
+
+    public BoleteriaService(ArchivoService archivoService) {
+        this.archivoService = Objects.requireNonNull(archivoService);
         reporteService = new ReporteService();
         try {
             eventos = archivoService.cargarEventos();
@@ -76,7 +80,7 @@ public class BoleteriaService {
         // Persistencia y reportes (RF5, RF6, RF7)
         archivoService.actualizarAsientos(this.asientos);
         archivoService.guardarCompra(compra);
-        PdfQrUtil.generarTicket(compra, evento.getNombre());
+        PdfQrUtil.generarTicket(compra, evento.getNombre(), archivoService.getDirectorioTickets());
         archivoService.auditar("Compra exitosa: " + idCompra + " | Asientos: " + asientosSolicitados.size());
 
         return compra;
