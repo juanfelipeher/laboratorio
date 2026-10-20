@@ -38,5 +38,96 @@
     "subtotal": 360000.0,
     "servicio": 36000.0,
     "total": 396000.0
+  },
+  {
+    "idCompra": "TEST",
+    "titular": "A",
+    "documento": "B",
+    "correo": "c@c",
+    "idEvento": "V001",
+    "asientos": [
+      "VIP-A-01"
+    ],
+    "subtotal": 0.0,
+    "servicio": 0.0,
+    "total": 0.0
+  },
+  {
+    "idCompra": "TEST",
+    "titular": "A",
+    "documento": "B",
+    "correo": "c@c",
+    "idEvento": "V001",
+    "asientos": [
+      "VIP-A-01"
+    ],
+    "subtotal": 0.0,
+    "servicio": 0.0,
+    "total": 0.0
+  },
+  {
+    "idCompra": "TEST",
+    "titular": "A",
+    "documento": "B",
+    "correo": "c@c",
+    "idEvento": "V001",
+    "asientos": [
+      "VIP-A-01"
+    ],
+    "subtotal": 0.0,
+    "servicio": 0.0,
+    "total": 0.0
+  },
+  {
+    "idCompra": "TEST",
+    "titular": "A",
+    "documento": "B",
+    "correo": "c@c",
+    "idEvento": "V001",
+    "asientos": [
+      "VIP-A-01"
+    ],
+    "subtotal": 0.0,
+    "servicio": 0.0,
+    "total": 0.0
+  },
+  {
+    "idCompra": "CMP-EB08C8",
+    "titular": "Ana",
+    "documento": "123",
+    "correo": "a@a.com",
+    "idEvento": "V001",
+    "asientos": [
+      "VIP-A-01"
+    ],
+    "subtotal": 350000.0,
+    "servicio": 35000.0,
+    "total": 385000.0
+  },
+  {
+    "idCompra": "TEST",
+    "titular": "A",
+    "documento": "B",
+    "correo": "c@c",
+    "idEvento": "V001",
+    "asientos": [
+      "VIP-A-01"
+    ],
+    "subtotal": 0.0,
+    "servicio": 0.0,
+    "total": 0.0
+  },
+  {
+    "idCompra": "CMP-20BBE9",
+    "titular": "Ana",
+    "documento": "123",
+    "correo": "a@a.com",
+    "idEvento": "V001",
+    "asientos": [
+      "VIP-A-01"
+    ],
+    "subtotal": 350000.0,
+    "servicio": 35000.0,
+    "total": 385000.0
   }
 ]

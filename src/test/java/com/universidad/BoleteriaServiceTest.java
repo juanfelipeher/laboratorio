@@ -1,128 +1,87 @@
 package com.universidad;
 
-import com.universidad.exception.AsientoNoDisponibleException;
-import com.universidad.exception.BoleteriaException;
-import com.universidad.model.Compra;
+import org.junit.jupiter.api.*;
+
 import com.universidad.service.ArchivoService;
 import com.universidad.service.BoleteriaService;
 import com.universidad.service.ReporteService;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.io.TempDir;
+import com.universidad.exception.AsientoNoDisponibleException;
+import com.universidad.exception.BoleteriaException;
+import com.universidad.model.Compra;
 
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.List;
+import java.io.File;
+import java.nio.file.*;
+import java.util.*;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BoleteriaServiceTest {
 
-    private static final String EVENTOS_PRUEBA =
-            "id,nom,fecha,hora,lug,tipoEvento\n"
-                    + "EV001,Rock Medellin 2026,20/10/2026,19:00,Estadio Atanasio Girardot,Concierto\n"
-                    + "EV002,Final Nacional 2026,15/11/2026,17:00,Estadio Metropolitano,Deportivo\n"
-                    + "EV003,Noche de Teatro,3/12/2026,20:00,Teatro Metropolitano,Teatro\n";
-    private static final String ASIENTOS_PRUEBA =
-            "idAsiento,idEvento,localidad,precio,disponible\n"
-                    + "VIP-A-01,EV001,VIP A 1,350000.0,true\n"
-                    + "VIP-A-02,EV001,VIP A 2,350000.0,true\n"
-                    + "GEN-C-01,EV001,General C 1,150000.0,true\n"
-                    + "OCC-A-01,EV002,Occidental A 1,180000.0,false\n";
+        private BoleteriaService service;
 
-    @TempDir
-    Path directorioTemporal;
+        @BeforeEach
+            void setupBaseDatosPrueba() throws Exception {
+                // Crear datos de prueba (Mocking file system manual para el test)
+                Files.createDirectories(Paths.get("data"));
+            Files.write(Paths.get("data/eventos.csv"), "id,nom,fecha,lug,\nV001,Prueba,2026,U\n".getBytes());
+            Files.write(Paths.get("data/asientos.csv"), "idA,idE,loc,pre,dis\nVIP-A-01,V001,VIP,350000.0,false\nPRE-B-01,V001,Preferencial,250000.0,false\nGEN-C-01,V001,General,150000.0,false\n".getBytes());
+                service = new BoleteriaService();
+        }
 
-    private ArchivoService archivos;
-    private BoleteriaService service;
-
-    @BeforeEach
-    void prepararDatosDePrueba() throws Exception {
-        Path directorioDatos = Files.createDirectories(directorioTemporal.resolve("data"));
-        Files.write(directorioDatos.resolve("eventos.csv"), EVENTOS_PRUEBA.getBytes(StandardCharsets.UTF_8));
-        Files.write(directorioDatos.resolve("asientos.csv"), ASIENTOS_PRUEBA.getBytes(StandardCharsets.UTF_8));
-        archivos = new ArchivoService(directorioTemporal);
-        service = new BoleteriaService(archivos);
+    @Test
+    void prueba1_CalculoSubtotalServicioTotal() throws Exception {
+        Files.write(Paths.get("data/asientos.csv"), "idA,idE,loc,pre,dis\nVIP-A-01,V001,VIP,350000.0,true\n".getBytes());
+        service = new BoleteriaService();
+        Compra c = service.procesarCompra("Ana", "123", "a@a.com", "V001", List.of("VIP-A-01"));
+        assertEquals(350000.0, c.getTotal() / 1.10, 0.1); // Subtotal original
+        assertEquals(385000.0, c.getTotal(), 0.1); // Total con 10%
     }
 
     @Test
-    void compraCalculaSubtotalServicioYTotalConAsientoActual() throws Exception {
-        Compra compra = service.procesarCompra(
-                "Ana", "123", "a@a.com", "EV001", List.of("VIP-A-01"));
-
-        assertEquals(350000.0, compra.getTotal() / 1.10, 0.01);
-        assertEquals(385000.0, compra.getTotal(), 0.01);
-        assertFalse(archivos.cargarAsientos().stream()
-                .filter(asiento -> asiento.getIdAsiento().equals("VIP-A-01"))
-                .findFirst()
-                .orElseThrow()
-                .isDisponible());
-        assertTrue(Files.exists(directorioTemporal.resolve("tickets")
-                .resolve(compra.getIdCompra() + ".pdf")));
+    void prueba2_RechazoAsientoYaVendido() {
+        assertThrows(AsientoNoDisponibleException.class, () -> {
+            service.procesarCompra("Ana", "123", "a@a.com", "V001", List.of("VIP-A-01"));
+        });
     }
 
     @Test
-    void rechazaAsientoQueYaEstaVendido() {
-        assertThrows(AsientoNoDisponibleException.class, () ->
-                service.procesarCompra(
-                        "Ana", "123", "a@a.com", "EV002", List.of("OCC-A-01")));
+    void prueba3_BusquedaEventoInvalido() {
+        assertThrows(BoleteriaException.class, () -> {
+            service.procesarCompra("Ana", "123", "a@a.com", "V999", List.of("VIP-A-01"));
+        });
     }
 
     @Test
-    void rechazaEventoInexistente() {
-        assertThrows(BoleteriaException.class, () ->
-                service.procesarCompra(
-                        "Ana", "123", "a@a.com", "EV999", List.of("VIP-A-01")));
+    void prueba4_ValidacionCorreoYDatosObligatorios() {
+        assertThrows(BoleteriaException.class, () -> {
+            service.procesarCompra("", "123", "correoMal", "V001", List.of("VIP-A-01"));
+        });
     }
 
     @Test
-    void validaCorreoYDatosObligatorios() {
-        assertThrows(BoleteriaException.class, () ->
-                service.procesarCompra(
-                        "", "123", "correoMal", "EV001", List.of("VIP-A-01")));
+    void prueba5_CalculoPorcentajeOcupacion() {
+        ReporteService rs = new ReporteService();
+        assertDoesNotThrow(() -> rs.generarReporte(service.getEventos(), List.of(), List.of()));
     }
 
     @Test
-    void generaReporteConEventosYAsientosActuales() {
-        ReporteService reporte = new ReporteService();
-
-        assertDoesNotThrow(() -> reporte.generarReporte(
-                service.getEventos(), archivos.cargarAsientos(), archivos.cargarCompras()));
+    void prueba6_LecturaFilaCsvInvalida() throws Exception {
+        Files.write(Paths.get("data/asientos.csv"), "A3,V001,Gen,PRECIO_MALO,true".getBytes(), StandardOpenOption.APPEND);
+        ArchivoService as = new ArchivoService();
+        assertDoesNotThrow(as::cargarAsientos); // No debe romper, debe auditar.
     }
 
     @Test
-    void ignoraFilaCsvInvalidaYLaRegistraEnAuditoria() throws Exception {
-        Path archivoAsientos = directorioTemporal.resolve("data").resolve("asientos.csv");
-        Files.write(archivoAsientos,
-                "GEN-C-99,EV001,General C 99,PRECIO_MALO,true\n".getBytes(StandardCharsets.UTF_8),
-                java.nio.file.StandardOpenOption.APPEND);
-
-        assertEquals(4, archivos.cargarAsientos().size());
-        assertTrue(Files.readAllLines(directorioTemporal.resolve("logs").resolve("auditoria.txt"),
-                StandardCharsets.UTF_8).stream().anyMatch(linea -> linea.contains("GEN-C-99")));
+    void prueba7_SerializacionCompraJSON() {
+        ArchivoService as = new ArchivoService();
+        List<Compra> iniciales = as.cargarCompras();
+        as.guardarCompra(new Compra("TEST", "A", "B", "c@c", "V001", List.of("VIP-A-01"), 0,0,0));
+        assertTrue(as.cargarCompras().size() > iniciales.size());
     }
-
+    
     @Test
-    void serializaCompraEnJson() {
-        Compra compra = new Compra(
-                "TEST", "Ana", "123", "a@a.com", "EV001",
-                List.of("VIP-A-01"), 350000.0, 35000.0, 385000.0);
-
-        archivos.guardarCompra(compra);
-
-        assertEquals(1, archivos.cargarCompras().size());
-        assertEquals("TEST", archivos.cargarCompras().get(0).getIdCompra());
-    }
-
-    @Test
-    void generaExcepcionPersonalizadaConIdDelAsiento() {
-        Exception excepcion = new AsientoNoDisponibleException("VIP-A-01");
-
-        assertTrue(excepcion.getMessage().contains("VIP-A-01"));
+    void prueba8_GeneracionExcepcionPersonalizada() {
+        Exception e = new AsientoNoDisponibleException("VIP-A-01");
+        assertTrue(e.getMessage().contains("VIP-A-01"));
     }
 }

@@ -176,3 +176,27 @@
 2026-10-19T21:33:09.600594 | ERROR al cargar fila CSV: GEN-C-01,E01,General,150000.0,falseA3,E01,Gen,PRECIO_MALO,true
 2026-10-19T21:33:20.042931400 | Sistema inicializado. Datos cargados.
 2026-10-19T21:33:20.079588500 | ERROR al cargar fila CSV: GEN-C-01,E01,General,150000.0,falseA3,E01,Gen,PRECIO_MALO,true
+2026-10-19T22:39:50.169229500 | Sistema inicializado. Datos cargados.
+2026-10-19T22:39:50.232502300 | ERROR al cargar fila CSV: GEN-C-01,V001,General,150000.0,falseA3,V001,Gen,PRECIO_MALO,true
+2026-10-19T22:41:44.922749700 | Sistema inicializado. Datos cargados.
+2026-10-19T22:41:44.977691700 | ERROR al cargar fila CSV: GEN-C-01,V001,General,150000.0,falseA3,V001,Gen,PRECIO_MALO,true
+2026-10-19T22:42:14.564562800 | Sistema inicializado. Datos cargados.
+2026-10-19T22:42:14.616497400 | ERROR al cargar fila CSV: GEN-C-01,V001,General,150000.0,falseA3,V001,Gen,PRECIO_MALO,true
+2026-10-19T22:42:44.765811 | Sistema inicializado. Datos cargados.
+2026-10-19T22:42:44.819137400 | ERROR al cargar fila CSV: GEN-C-01,V001,General,150000.0,falseA3,V001,Gen,PRECIO_MALO,true
+2026-10-19T22:42:51.031799700 | Sistema inicializado. Datos cargados.
+2026-10-19T22:42:54.108265 | Sistema inicializado. Datos cargados.
+2026-10-19T22:44:04.864073800 | Sistema inicializado. Datos cargados.
+2026-10-19T22:44:04.910343600 | Sistema inicializado. Datos cargados.
+2026-10-19T22:44:05.877015500 | Compra exitosa: CMP-EB08C8 | Asientos: 1
+2026-10-19T22:44:11.579664900 | Sistema inicializado. Datos cargados.
+2026-10-19T22:44:11.622120900 | ERROR al cargar fila CSV: A3,V001,Gen,PRECIO_MALO,true
+2026-10-19T22:44:11.682330900 | Sistema inicializado. Datos cargados.
+2026-10-19T22:44:11.708306100 | Sistema inicializado. Datos cargados.
+2026-10-19T22:44:11.728837300 | Sistema inicializado. Datos cargados.
+2026-10-19T22:44:11.750371 | Sistema inicializado. Datos cargados.
+2026-10-19T22:44:11.879781500 | Sistema inicializado. Datos cargados.
+2026-10-19T22:44:11.900313300 | Sistema inicializado. Datos cargados.
+2026-10-19T22:44:11.967970300 | Sistema inicializado. Datos cargados.
+2026-10-19T22:44:11.978271300 | Sistema inicializado. Datos cargados.
+2026-10-19T22:44:12.523308100 | Compra exitosa: CMP-20BBE9 | Asientos: 1
