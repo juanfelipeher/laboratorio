@@ -200,3 +200,41 @@
 2026-10-19T22:44:11.967970300 | Sistema inicializado. Datos cargados.
 2026-10-19T22:44:11.978271300 | Sistema inicializado. Datos cargados.
 2026-10-19T22:44:12.523308100 | Compra exitosa: CMP-20BBE9 | Asientos: 1
+2026-10-19T22:46:02.189420400 | Sistema inicializado. Datos cargados.
+2026-10-19T22:46:02.217503 | ERROR al cargar fila CSV: A3,V001,Gen,PRECIO_MALO,true
+2026-10-19T22:46:02.269768300 | Sistema inicializado. Datos cargados.
+2026-10-19T22:46:02.290842400 | Sistema inicializado. Datos cargados.
+2026-10-19T22:46:02.307379100 | Sistema inicializado. Datos cargados.
+2026-10-19T22:46:02.328761600 | Sistema inicializado. Datos cargados.
+2026-10-19T22:46:02.438099600 | Sistema inicializado. Datos cargados.
+2026-10-19T22:46:02.463174900 | Sistema inicializado. Datos cargados.
+2026-10-19T22:46:02.535370 | Sistema inicializado. Datos cargados.
+2026-10-19T22:46:02.564014700 | Sistema inicializado. Datos cargados.
+2026-10-19T22:46:03.231800700 | Compra exitosa: CMP-4FE191 | Asientos: 1
+2026-10-20T10:37:09.920786400 | Sistema inicializado. Datos cargados.
+2026-10-20T10:38:57.202057 | Compra exitosa: CMP-F5C44A | Asientos: 2
+2026-10-20T10:39:47.396479100 | Sistema inicializado. Datos cargados.
+2026-10-20T10:39:47.429243500 | ERROR al cargar fila CSV: A3,V001,Gen,PRECIO_MALO,true
+2026-10-20T10:39:47.473622 | Sistema inicializado. Datos cargados.
+2026-10-20T10:39:47.489790300 | Sistema inicializado. Datos cargados.
+2026-10-20T10:39:47.502322 | Sistema inicializado. Datos cargados.
+2026-10-20T10:39:47.516331600 | Sistema inicializado. Datos cargados.
+2026-10-20T10:39:47.591973300 | Sistema inicializado. Datos cargados.
+2026-10-20T10:39:47.606501200 | Sistema inicializado. Datos cargados.
+2026-10-20T10:39:47.654052300 | Sistema inicializado. Datos cargados.
+2026-10-20T10:39:47.673069900 | Sistema inicializado. Datos cargados.
+2026-10-20T10:39:48.082226300 | Compra exitosa: CMP-9631AF | Asientos: 1
+2026-10-20T10:47:19.887118400 | Sistema inicializado. Datos cargados.
+2026-10-20T10:47:31.171372500 | Sistema inicializado. Datos cargados.
+2026-10-20T10:47:31.203411900 | ERROR al cargar fila CSV: A3,V001,Gen,PRECIO_MALO,true
+2026-10-20T10:47:31.274292100 | Sistema inicializado. Datos cargados.
+2026-10-20T10:47:31.299540400 | Sistema inicializado. Datos cargados.
+2026-10-20T10:47:31.321551700 | Sistema inicializado. Datos cargados.
+2026-10-20T10:47:31.342618800 | Sistema inicializado. Datos cargados.
+2026-10-20T10:47:31.466446500 | Sistema inicializado. Datos cargados.
+2026-10-20T10:47:31.490312300 | Sistema inicializado. Datos cargados.
+2026-10-20T10:47:31.545324900 | Sistema inicializado. Datos cargados.
+2026-10-20T10:47:31.555995600 | Sistema inicializado. Datos cargados.
+2026-10-20T10:47:32.085010700 | Compra exitosa: CMP-E3E08C | Asientos: 1
+2026-10-20T10:48:56.481069200 | Sistema inicializado. Datos cargados.
+2026-10-20T10:49:57.531958500 | Compra exitosa: CMP-EA48A1 | Asientos: 1

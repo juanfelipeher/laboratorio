@@ -129,5 +129,18 @@
     "subtotal": 350000.0,
     "servicio": 35000.0,
     "total": 385000.0
+  },
+  {
+    "idCompra": "CMP-EA48A1",
+    "titular": "Juan",
+    "documento": "!063",
+    "correo": "facre@gmail",
+    "idEvento": "EV001",
+    "asientos": [
+      "VIP-A-01"
+    ],
+    "subtotal": 350000.0,
+    "servicio": 35000.0,
+    "total": 385000.0
   }
 ]
